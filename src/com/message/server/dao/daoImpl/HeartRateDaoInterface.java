@@ -9,18 +9,18 @@ public class HeartRateDaoInterface extends Application {
 
     /**
      * 添加一个心率值
-     * @param shuo
+     * @param heartrate
      */
     public void addHeartRate(com.message.server.model.HeartRate heartrate);
 
     /**
      * 通过的ID删除一个心率值
-     * @param shuoId
+     * @param heartId
      */
-    public void delHeartRate(int shuoId);
+    public void delHeartRate(int heartId);
 
     /**
      * 查找出所有的心率值保存在list中
      */
-    public List<com.message.server.model.HeartRate> selectAllshuo();
+    public List<com.message.server.model.HeartRate> selectAllheart();
 }

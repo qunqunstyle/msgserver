@@ -43,11 +43,11 @@ public class HeartRateDao extends MyHibernateDaoSupport implements HeartRateDaoI
      * @return
      */
     @Override
-    public List<HeartRate> selectAllshuo(String username) {
+    public List<HeartRate> selectAllheart(String userName) {
         List<HeartRate> heartrates = new ArrayList<>();
         Session session = this.getSession(true);
         Transaction tc = session.beginTransaction();
-        List list = session.createQuery("From Shuoshuo where username = "+username"order by heartId desc").list();
+        List list = session.createQuery("From HeartRate where userName = "+userName"order by heartId desc").list();
         for (Iterator iterator = list.iterator(); iterator.hasNext(); ) {
             HeartRate heartrate = (HeartRate) iterator.next();
             heartrates.add(heartrate);
