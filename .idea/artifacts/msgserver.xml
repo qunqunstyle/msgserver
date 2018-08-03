@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="msgserver">
+    <output-path>$PROJECT_DIR$/out/artifacts/msgserver</output-path>
+    <root id="archive" name="msgserver.war">
+      <element id="artifact" artifact-name="msgserver:war exploded" />
+      <element id="dir-copy" path="$PROJECT_DIR$/web" />
+    </root>
+  </artifact>
+</component>

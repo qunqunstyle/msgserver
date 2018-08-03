@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="msgserver:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/msgserver_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="msgserver/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="msgserver" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="struts2" />
+          <element id="library" level="project" name="spring" />
+          <element id="library" level="project" name="hibernate" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
