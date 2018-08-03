@@ -7,7 +7,7 @@ import net.sf.json.JSONObject;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "commentdb")
+@Table(name = "heartdb")
 public class HeartRate extends Application {
 
     //心率值的ID
@@ -31,6 +31,23 @@ public class HeartRate extends Application {
     //测试时间
     @Column(name = "testDate")
     private String testDate;
+
+    //static or sports
+    @Column(name = "motion_state")
+    private Boolean motion_state;
+
+    //eat or not
+    @Column(name = "eating")
+    private Boolean eating;
+
+    //speeling or not
+    @Column(name = "speeling")
+    private Boolean speeling;
+
+    //remarks
+    @Column(name = "remark")
+    private String remark;
+
 
 
 
@@ -74,6 +91,38 @@ public class HeartRate extends Application {
         this.userName = userName;
     }
 
+    public Boolean getMotion_state() {
+        return motion_state;
+    }
+
+    public void setMotion_state(){
+        this.motion_state = motion_state;
+    }
+
+    public Boolean getEating() {
+        return eating;
+    }
+
+    public void setEating(Boolean eating) {
+        this.eating = eating;
+    }
+
+    public Boolean getSpeeling() {
+        return speeling;
+    }
+
+    public void setSpeeling(Boolean speeling) {
+        this.speeling = speeling;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
     public JSONObject HeartRateToJSON() {
         JSONObject json = new JSONObject();
         json.put("heartId", heartId);
@@ -81,6 +130,10 @@ public class HeartRate extends Application {
         json.put("heartvalue", heartvalue);
         json.put("BVP", BVP);
         json.put("testDate", testDate);
+        json.put("motion_state",motion_state);
+        json.put("eating",eating);
+        json.put("speeling",speeling);
+        json.put("remarks",remark);
         return json;
     }
 }
