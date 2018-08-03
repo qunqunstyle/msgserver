@@ -51,6 +51,15 @@ public class HeartRate extends Application {
 
 
 
+    public HeartRate(){
+
+    }
+
+    public  HeartRate(int heartId){
+        this,heartId = heartId;
+    }
+
+
     public int getHeartId() {
         return heartId;
     }
