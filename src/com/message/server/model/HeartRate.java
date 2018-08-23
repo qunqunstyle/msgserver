@@ -34,15 +34,15 @@ public class HeartRate extends Application {
 
     //static or sports
     @Column(name = "motion_state")
-    private Boolean motion_state;
+    private String motion_state;
 
     //eat or not
     @Column(name = "eating")
-    private Boolean eating;
+    private String eating;
 
     //speeling or not
     @Column(name = "speeling")
-    private Boolean speeling;
+    private String speeling;
 
     //remarks
     @Column(name = "remark")
@@ -63,71 +63,62 @@ public class HeartRate extends Application {
     public int getHeartId() {
         return heartId;
     }
-
     public void setHeartId(int heartId) {
         this.heartId = heartId;
-    }
-
-    public String getHeartvalue() {
-        return heartvalue;
-    }
-
-    public void setHeartValue(String heartValue) {
-        this.heartValue = heartValue;
-    }
-
-    public  String getBVP(){
-        return BVP;
-    }
-
-    public void setBVP(){
-        this.BVP = BVP;
-    }
-
-    public String getTestDate(){
-        return testDate;
-    }
-
-    public void setTestDate(String testDate) {
-        this.testDate = testDate;
     }
 
     public String getUserName() {
         return userName;
     }
-
     public void setUserName(String userName) {
         this.userName = userName;
     }
 
-    public Boolean getMotion_state() {
-        return motion_state;
+    public String getHeartvalue() {
+        return heartvalue;
+    }
+    public void setHeartvalue(String heartvalue) {
+        this.heartvalue = heartvalue;
     }
 
-    public void setMotion_state(){
+    public String getBVP() {
+        return BVP;
+    }
+    public void setBVP(String BVP) {
+        this.BVP = BVP;
+    }
+
+    public String getTestDate() {
+        return testDate;
+    }
+    public void setTestDate(String testDate) {
+        this.testDate = testDate;
+    }
+
+    public String getMotion_state() {
+        return motion_state;
+    }
+    public void setMotion_state(String motion_state) {
         this.motion_state = motion_state;
     }
 
-    public Boolean getEating() {
+    public String getEating() {
         return eating;
     }
-
-    public void setEating(Boolean eating) {
+    public void setEating(String eating) {
         this.eating = eating;
     }
 
-    public Boolean getSpeeling() {
+    public String getSpeeling() {
         return speeling;
     }
-
-    public void setSpeeling(Boolean speeling) {
+    public void setSpeeling(String speeling) {
         this.speeling = speeling;
     }
 
     public String getRemark() {
         return remark;
     }
-
     public void setRemark(String remark) {
         this.remark = remark;
     }

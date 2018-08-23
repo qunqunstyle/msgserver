@@ -1,5 +1,6 @@
 package action;
 
+import com.sun.org.apache.xpath.internal.operations.String;
 import dao.HeartRateDao;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -34,9 +35,9 @@ public class HeartRateAction extends Application {
         heartRate.getRemark(new String(heartRate.getRemark().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.getTestDate(new String(heartRate.getTestDate().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.getBVP(new String(heartRate.getBVP().getBytes("ISO-8859-1"), "UTF-8"));
-        heartRate.getMotion_state(new Boolean(heartRate.getMotion_state().toString().getBytes("ISO-8859-1"), "UTF-8"));
-        heartRate.getSpeeling(new Boolean(heartRate.getSpeeling().toString().getBytes("ISO-8859-1"), "UTF-8"));
-        heartRate.getEating(new Boolean(heartRate.getEating().toString().getBytes("ISO-8859-1"), "UTF-8"));
+        heartRate.getMotion_state(new String(heartRate.getMotion_state().getBytes("ISO-8859-1"), "UTF-8"));
+        heartRate.getSpeeling(new String(heartRate.getSpeeling().getBytes("ISO-8859-1"), "UTF-8"));
+        heartRate.getEating(new String(heartRate.getEating().getBytes("ISO-8859-1"), "UTF-8"));
         heartRateDao.addHeartrate(heartRate);
         renderText("success");
     }
