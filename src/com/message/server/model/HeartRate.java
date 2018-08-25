@@ -7,7 +7,7 @@ import net.sf.json.JSONObject;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "heartdb")
+@Table(name = "heartRate")
 public class HeartRate extends Application {
 
     //心率值的ID
