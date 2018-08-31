@@ -24,6 +24,9 @@ public class HeartRate extends Application {
     @Column(name = "heartvalue")
     private String heartvalue;
 
+    //血氧饱和度
+    @Column(name = "spo2value")
+    private String spo2value;
     //BVP数组
     @Column(name = "BVP")
     private String BVP;
@@ -84,6 +87,15 @@ public class HeartRate extends Application {
     public String getBVP() {
         return BVP;
     }
+
+    public String getSpo2value() {
+        return spo2value;
+    }
+
+    public void setSpo2value(String spo2value) {
+        this.spo2value = spo2value;
+    }
+
     public void setBVP(String BVP) {
         this.BVP = BVP;
     }
@@ -128,6 +140,7 @@ public class HeartRate extends Application {
         json.put("heartId", heartId);
         json.put("userName", userName);
         json.put("heartvalue", heartvalue);
+        json.put("spo2value", spo2value);
         json.put("BVP", BVP);
         json.put("testDate", testDate);
         json.put("motion_state",motion_state);

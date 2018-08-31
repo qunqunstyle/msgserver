@@ -32,6 +32,7 @@ public class HeartRateAction extends Application {
     public void addHeartRate() throws UnsupportedEncodingException {
         heartRate.setUserName(new String(heartRate.getUserName().getBytes("ISO-8859-1"),"UTF-8"));
         heartRate.setHeartValue(new String(heartRate.getHeartvalue().getBytes("ISO-8859-1"), "UTF-8"));
+        heartRate.setSpo2Value(new String(heartRate.getSpo2value().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.getRemark(new String(heartRate.getRemark().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.getTestDate(new String(heartRate.getTestDate().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.getBVP(new String(heartRate.getBVP().getBytes("ISO-8859-1"), "UTF-8"));
