@@ -1,14 +1,15 @@
-package model;
+package com.message.server.model;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
+
+
 import net.sf.json.JSONObject;
-
+import org.springframework.stereotype.Repository;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "heartRate")
-public class HeartRate extends Application {
+public class HeartRate {
 
     //心率值的ID
     @Id
@@ -51,7 +52,10 @@ public class HeartRate extends Application {
     @Column(name = "remark")
     private String remark;
 
-
+    public  HeartRate(int heartId,String userName){
+        this.heartId = heartId;
+        this.userName = userName;
+    }
 
 
     public HeartRate(){
@@ -59,7 +63,7 @@ public class HeartRate extends Application {
     }
 
     public  HeartRate(int heartId){
-        this,heartId = heartId;
+        this.heartId = heartId;
     }
 
 
