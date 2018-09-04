@@ -1,17 +1,17 @@
-package dao.daoImpl;
+package com.message.server.dao.daoImpl;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
+
+import com.message.server.model.HeartRate;
 
 import java.util.List;
 
-public class HeartRateDaoInterface extends Application {
+public interface HeartRateDaoInterface  {
 
     /**
      * 添加一个心率值
      * @param heartrate
      */
-    public void addHeartRate(com.message.server.model.HeartRate heartrate);
+    public void addHeartrate(HeartRate heartrate);
 
     /**
      * 通过的ID删除一个心率值
@@ -22,5 +22,5 @@ public class HeartRateDaoInterface extends Application {
     /**
      * 查找出所有的心率值保存在list中
      */
-    public List<com.message.server.model.HeartRate> selectAllheart();
+    public List<HeartRate> selectAllheart(String userName);
 }

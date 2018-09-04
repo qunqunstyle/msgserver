@@ -1,18 +1,22 @@
-package action;
+package com.message.server.action;
 
-import com.sun.org.apache.xpath.internal.operations.String;
-import dao.HeartRateDao;
-import javafx.application.Application;
-import javafx.stage.Stage;
-import model.HeartRate;
+
+import com.message.server.dao.HeartRateDao;
+import com.message.server.model.HeartRate;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.apache.struts2.convention.annotation.Action;
-
+import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import com.message.server.utils.ActionSupportUtil;
+import org.springframework.stereotype.Controller;
 
-public class HeartRateAction extends Application {
 
+@Controller
+public class HeartRateAction extends ActionSupportUtil {
+
+    @Resource
     private HeartRate heartRate;
     private HeartRateDao heartRateDao;
 
@@ -31,14 +35,15 @@ public class HeartRateAction extends Application {
     @Action("addHeartRate")
     public void addHeartRate() throws UnsupportedEncodingException {
         heartRate.setUserName(new String(heartRate.getUserName().getBytes("ISO-8859-1"),"UTF-8"));
-        heartRate.setHeartValue(new String(heartRate.getHeartvalue().getBytes("ISO-8859-1"), "UTF-8"));
-        heartRate.setSpo2Value(new String(heartRate.getSpo2value().getBytes("ISO-8859-1"), "UTF-8"));
-        heartRate.getRemark(new String(heartRate.getRemark().getBytes("ISO-8859-1"), "UTF-8"));
-        heartRate.getTestDate(new String(heartRate.getTestDate().getBytes("ISO-8859-1"), "UTF-8"));
-        heartRate.getBVP(new String(heartRate.getBVP().getBytes("ISO-8859-1"), "UTF-8"));
-        heartRate.getMotion_state(new String(heartRate.getMotion_state().getBytes("ISO-8859-1"), "UTF-8"));
-        heartRate.getSpeeling(new String(heartRate.getSpeeling().getBytes("ISO-8859-1"), "UTF-8"));
-        heartRate.getEating(new String(heartRate.getEating().getBytes("ISO-8859-1"), "UTF-8"));
+        heartRate.setHeartvalue(new String(heartRate.getHeartvalue().getBytes("ISO-8859-1"), "UTF-8"));
+        heartRate.setSpo2value(new String(heartRate.getSpo2value().getBytes("ISO-8859-1"), "UTF-8"));
+        heartRate.setBVP(new String(heartRate.getBVP().getBytes("ISO-8859-1"), "UTF-8"));
+        heartRate.setTestDate(new String(heartRate.getTestDate().getBytes("ISO-8859-1"), "UTF-8"));
+        heartRate.setEating(new String(heartRate.getEating().getBytes("ISO-8859-1"), "UTF-8"));
+        heartRate.setSpeeling(new String(heartRate.getSpeeling().getBytes("ISO-8859-1"), "UTF-8"));
+        heartRate.setMotion_state(new String(heartRate.getMotion_state().getBytes("ISO-8859-1"), "UTF-8"));
+        heartRate.setRemark(new String(heartRate.getRemark().getBytes("ISO-8859-1"), "UTF-8"));
+
         heartRateDao.addHeartrate(heartRate);
         renderText("success");
     }
@@ -48,12 +53,12 @@ public class HeartRateAction extends Application {
      */
     @Action("getAllHeartRate")
     public void getAllHeartRate() {
-        List<com.message.server.model.HeartRate> heartRates = heartRateDao.selectAllheart();
+        List<HeartRate> heartRates = heartRateDao.selectAllheart(heartRate.getUserName());
         if (heartRates == null) {
             renderText("heartrate null");
         } else {
             JSONArray json = new JSONArray();
-            for (com.message.server.model.HeartRate heartRate : heartRates) {
+            for (HeartRate heartRate : heartRates) {
                 json.add(heartRate.HeartRateToJSON());
             }
             renderJson(json.toString());
