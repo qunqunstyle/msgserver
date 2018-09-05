@@ -10,14 +10,16 @@ import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import com.message.server.utils.ActionSupportUtil;
+import org.omg.CORBA.Request;
 import org.springframework.stereotype.Controller;
 
 
 @Controller
 public class HeartRateAction extends ActionSupportUtil {
 
-    @Resource
+
     private HeartRate heartRate;
+    @Resource
     private HeartRateDao heartRateDao;
 
     public HeartRate getHeartRate(){
@@ -32,8 +34,10 @@ public class HeartRateAction extends ActionSupportUtil {
      * http://localhost:8080/addHeartRate
      * @throws UnsupportedEncodingException
      */
-    @Action("addHeartRate")
+    @Action(value ="addHeartRate")
     public void addHeartRate() throws UnsupportedEncodingException {
+        LOG.info("request",heartRate.getUserName());
+        LOG.info("request",heartRate.getEating());
         heartRate.setUserName(new String(heartRate.getUserName().getBytes("ISO-8859-1"),"UTF-8"));
         heartRate.setHeartvalue(new String(heartRate.getHeartvalue().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.setSpo2value(new String(heartRate.getSpo2value().getBytes("ISO-8859-1"), "UTF-8"));
@@ -44,6 +48,8 @@ public class HeartRateAction extends ActionSupportUtil {
         heartRate.setMotion_state(new String(heartRate.getMotion_state().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.setRemark(new String(heartRate.getRemark().getBytes("ISO-8859-1"), "UTF-8"));
 
+        LOG.info("request",heartRate.getUserName());
+        LOG.info("request",heartRate.getEating());
         heartRateDao.addHeartrate(heartRate);
         renderText("success");
     }
@@ -51,7 +57,7 @@ public class HeartRateAction extends ActionSupportUtil {
     /**
      * http://localhost:8080/getAllHeartRate
      */
-    @Action("getAllHeartRate")
+    @Action(value ="getAllHeartRate")
     public void getAllHeartRate() {
         List<HeartRate> heartRates = heartRateDao.selectAllheart(heartRate.getUserName());
         if (heartRates == null) {
