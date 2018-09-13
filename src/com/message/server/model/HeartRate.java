@@ -52,6 +52,9 @@ public class HeartRate {
     @Column(name = "remark")
     private String remark;
 
+    @Column(name ="phoneModel")
+    private String phoneModel;
+
     public  HeartRate(int heartId,String userName){
         this.heartId = heartId;
         this.userName = userName;
@@ -138,6 +141,14 @@ public class HeartRate {
         this.remark = remark;
     }
 
+    public String getPhoneModel() {
+        return phoneModel;
+    }
+
+    public void setPhoneModel(String phoneModel) {
+        this.phoneModel = phoneModel;
+    }
+
     public JSONObject HeartRateToJSON() {
         JSONObject json = new JSONObject();
         json.put("heartId", heartId);
@@ -150,6 +161,7 @@ public class HeartRate {
         json.put("eating",eating);
         json.put("sleeping",sleeping);
         json.put("remarks",remark);
+        json.put("phoneModel",phoneModel);
         return json;
     }
 }
