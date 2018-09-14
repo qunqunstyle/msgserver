@@ -29,8 +29,8 @@ public class HeartRate {
     @Column(name = "spo2value")
     private String spo2value;
     //BVP数组
-    @Column(name = "BVP")
-    private String BVP;
+    @Column(name = "bvp")
+    private String bvp;
 
     //测试时间
     @Column(name = "testDate")
@@ -45,12 +45,15 @@ public class HeartRate {
     private String eating;
 
     //speeling or not
-    @Column(name = "speeling")
-    private String speeling;
+    @Column(name = "sleeping")
+    private String sleeping;
 
     //remarks
     @Column(name = "remark")
     private String remark;
+
+    @Column(name ="phoneModel")
+    private String phoneModel;
 
     public  HeartRate(int heartId,String userName){
         this.heartId = heartId;
@@ -88,21 +91,20 @@ public class HeartRate {
         this.heartvalue = heartvalue;
     }
 
-    public String getBVP() {
-        return BVP;
+    public String getBvp() {
+        return bvp;
+    }
+    public void setBvp(String bvp) {
+        this.bvp = bvp;
     }
 
     public String getSpo2value() {
         return spo2value;
     }
-
     public void setSpo2value(String spo2value) {
         this.spo2value = spo2value;
     }
 
-    public void setBVP(String BVP) {
-        this.BVP = BVP;
-    }
 
     public String getTestDate() {
         return testDate;
@@ -125,11 +127,11 @@ public class HeartRate {
         this.eating = eating;
     }
 
-    public String getSpeeling() {
-        return speeling;
+    public String getSleeping() {
+        return sleeping;
     }
-    public void setSpeeling(String speeling) {
-        this.speeling = speeling;
+    public void setSleeping(String sleeping) {
+        this.sleeping = sleeping;
     }
 
     public String getRemark() {
@@ -139,18 +141,27 @@ public class HeartRate {
         this.remark = remark;
     }
 
+    public String getPhoneModel() {
+        return phoneModel;
+    }
+
+    public void setPhoneModel(String phoneModel) {
+        this.phoneModel = phoneModel;
+    }
+
     public JSONObject HeartRateToJSON() {
         JSONObject json = new JSONObject();
         json.put("heartId", heartId);
         json.put("userName", userName);
         json.put("heartvalue", heartvalue);
         json.put("spo2value", spo2value);
-        json.put("BVP", BVP);
+        json.put("bvp", bvp);
         json.put("testDate", testDate);
         json.put("motion_state",motion_state);
         json.put("eating",eating);
-        json.put("speeling",speeling);
+        json.put("sleeping",sleeping);
         json.put("remarks",remark);
+        json.put("phoneModel",phoneModel);
         return json;
     }
 }

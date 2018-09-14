@@ -3,6 +3,7 @@ package com.message.server.action;
 
 import com.message.server.dao.HeartRateDao;
 import com.message.server.model.HeartRate;
+import com.opensymphony.xwork2.ModelDriven;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.struts2.convention.annotation.Action;
@@ -15,14 +16,21 @@ import org.springframework.stereotype.Controller;
 
 
 @Controller
-public class HeartRateAction extends ActionSupportUtil {
-
+public class HeartRateAction extends ActionSupportUtil implements ModelDriven<HeartRate>{
 
     private HeartRate heartRate;
     @Resource
     private HeartRateDao heartRateDao;
 
+
     public HeartRate getHeartRate(){
+        return heartRate;
+    }
+    @Override
+    public HeartRate getModel(){
+        if(heartRate == null){
+            heartRate = new HeartRate();
+        }
         return heartRate;
     }
 
@@ -36,18 +44,21 @@ public class HeartRateAction extends ActionSupportUtil {
      */
     @Action(value ="addHeartRate")
     public void addHeartRate() throws UnsupportedEncodingException {
+        //LOG.info("request",heartRate.getUserName());
+        //LOG.info("request",heartRate.getEating());
         heartRate.setUserName(new String(heartRate.getUserName().getBytes("ISO-8859-1"),"UTF-8"));
         heartRate.setHeartvalue(new String(heartRate.getHeartvalue().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.setSpo2value(new String(heartRate.getSpo2value().getBytes("ISO-8859-1"), "UTF-8"));
-        heartRate.setBVP(new String(heartRate.getBVP().getBytes("ISO-8859-1"), "UTF-8"));
+        //heartRate.setBVP(new String(heartRate.getBVP().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.setTestDate(new String(heartRate.getTestDate().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.setEating(new String(heartRate.getEating().getBytes("ISO-8859-1"), "UTF-8"));
-        heartRate.setSpeeling(new String(heartRate.getSpeeling().getBytes("ISO-8859-1"), "UTF-8"));
+        heartRate.setSleeping(new String(heartRate.getSleeping().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.setMotion_state(new String(heartRate.getMotion_state().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.setRemark(new String(heartRate.getRemark().getBytes("ISO-8859-1"), "UTF-8"));
+        heartRate.setPhoneModel(new String(heartRate.getPhoneModel().getBytes("ISO-8859-1"), "UTF-8"));
 
-        LOG.info("request",heartRate.getUserName());
-        LOG.info("request",heartRate.getEating());
+        //LOG.info("request",heartRate.getUserName());
+        //LOG.info("request",heartRate.getEating());
         heartRateDao.addHeartrate(heartRate);
         renderText("success");
     }
