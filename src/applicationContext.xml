@@ -26,10 +26,11 @@
                   value="com.mysql.jdbc.Driver">
         </property>
         <property name="url"
-                  value="jdbc:mysql://39.106.28.218:3306/userdao?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true">
+                  <!-- 数据库地址及名称 -->
+                  value="jdbc:mysql://**.***.**.***:3306/****?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true">
         </property>
-        <property name="username" value="vm666"></property>
-        <property name="password" value="12345678"></property>
+        <property name="username" value="*****"></property><!-- 链接名 -->
+        <property name="password" value="*****"></property><!-- 链接密码 -->
         <property name="maxActive" value="5" />
         <property name="maxIdle" value="40" />
         <property name="defaultAutoCommit" value="false" />
