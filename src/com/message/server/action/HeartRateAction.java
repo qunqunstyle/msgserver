@@ -46,6 +46,9 @@ public class HeartRateAction extends ActionSupportUtil implements ModelDriven<He
     public void addHeartRate() throws UnsupportedEncodingException {
         //LOG.info("request",heartRate.getUserName());
         //LOG.info("request",heartRate.getEating());
+        System.out.println("request 1 getUserName =====> "+heartRate.getUserName());
+        System.out.println("request 2 getBvp =====> "+heartRate.getBvp());
+        System.out.println("request 2 getBvp.length =====> "+heartRate.getBvp().length());
         heartRate.setUserName(new String(heartRate.getUserName().getBytes("ISO-8859-1"),"UTF-8"));
         heartRate.setHeartvalue(new String(heartRate.getHeartvalue().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.setSpo2value(new String(heartRate.getSpo2value().getBytes("ISO-8859-1"), "UTF-8"));
