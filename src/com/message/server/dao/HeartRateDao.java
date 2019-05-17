@@ -57,7 +57,7 @@ public class HeartRateDao extends MyHibernateDaoSupport implements HeartRateDaoI
         List<HeartRate> heartrates = new ArrayList<>();
         Session session = this.getSession(true);
         Transaction tc = session.beginTransaction();
-        List list = session.createQuery("From HeartRate where userName = "+userName+"order by heartId desc").list();
+        List list = session.createQuery("From HeartRate u where u.userName =:userName order by heartId desc").setString("userName",userName).list();
         for (Iterator iterator = list.iterator(); iterator.hasNext(); ) {
             HeartRate heartrate = (HeartRate) iterator.next();
             heartrates.add(heartrate);
