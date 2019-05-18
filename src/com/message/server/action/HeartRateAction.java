@@ -71,15 +71,24 @@ public class HeartRateAction extends ActionSupportUtil implements ModelDriven<He
      */
     @Action(value ="getAllHeartRate")
     public void getAllHeartRate() {
-        List<HeartRate> heartRates = heartRateDao.selectAllheart(heartRate.getUserName());
-        if (heartRates == null) {
-            renderText("heartrate null");
-        } else {
-            JSONArray json = new JSONArray();
-            for (HeartRate heartRate : heartRates) {
-                json.add(heartRate.HeartRateToJSON());
+        try{
+            //把ISO-8859-1编码的值变成utf-8
+            String username = new String(heartRate.getUserName().getBytes("ISO-8859-1"), "utf-8");
+            List<HeartRate> heartRates = heartRateDao.selectAllheart(username);
+            System.out.println(username);
+
+            if (heartRates == null) {
+                renderText("heartrate null");
+            } else {
+                JSONArray json = new JSONArray();
+                for (HeartRate heartRate : heartRates) {
+                    json.add(heartRate.HeartRateToJSON());
+                }
+                renderJson(json.toString());
             }
-            renderJson(json.toString());
+        }catch (Exception e){
+            System.out.println("输入存在问题");
         }
+
     }
 }
