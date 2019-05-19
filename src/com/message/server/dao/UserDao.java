@@ -145,7 +145,8 @@ public class UserDao extends MyHibernateDaoSupport implements UserDaoInterface {
         Session session = this.getSession(true);
         Transaction tc = session.beginTransaction();
         List users = null;
-        users = session.createQuery("From User u where u.userName=:userName and u.userPassword=:userPassword").setString("userName", user.getUserName()).setString("userPassword", user.getUserPassword()).list();
+        users = session.createQuery("From User u where u.userName=:userName and u.userPassword=:userPassword")
+                .setString("userName", user.getUserName()).setString("userPassword", user.getUserPassword()).list();
         if (users.size() > 0) {
             try {
                 tc.commit();
