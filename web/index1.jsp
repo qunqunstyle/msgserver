@@ -8,16 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>addHeartRate</title>
+    <title>getAllHeartRate</title>
 </head>
 <body>
-<form id="form2" name="form2" method="post" action="addHeartRate">
-    用户：
+<form id="form2" name="form2" method="post" action="getAllHeartRate">
+    用户名：
     <input type="text" name="heartRate.userName"/>
     <br/><br/>
     密码：
-    <input type="text" name="heartRate.bvp"/>
-    <br/><br/>
     <input type="submit" name="Submit2" value="登录"/>
     <input type="reset" name="Submit" value="重置"/>
 
