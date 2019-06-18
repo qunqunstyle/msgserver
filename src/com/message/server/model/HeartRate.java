@@ -1,11 +1,9 @@
 package com.message.server.model;
 
 
-
 import net.sf.json.JSONObject;
-import org.springframework.stereotype.Repository;
+
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "heartRate")
@@ -51,6 +49,14 @@ public class HeartRate {
     //remarks
     @Column(name = "remark")
     private String remark;
+
+    //fs
+    @Column(name = "fs")
+    private String fs;
+
+    //remarks
+    @Column(name = "cameraType")
+    private String cameraType;
 
     @Column(name ="phoneModel")
     private String phoneModel;
@@ -149,6 +155,21 @@ public class HeartRate {
         this.phoneModel = phoneModel;
     }
 
+    public String getFs() {
+        return fs;
+    }
+
+    public void setFs(String fs) {
+        this.fs = fs;
+    }
+
+    public String getCameraType() {
+        return cameraType;
+    }
+
+    public void setCameraType(String cameraType) {
+        this.cameraType = cameraType;
+    }
     public JSONObject HeartRateToJSON() {
         JSONObject json = new JSONObject();
         json.put("heartId", heartId);
@@ -162,6 +183,8 @@ public class HeartRate {
         json.put("sleeping",sleeping);
         json.put("remarks",remark);
         json.put("phoneModel",phoneModel);
+        json.put("fs",fs);
+        json.put("cameraType",cameraType);
         return json;
     }
 }
