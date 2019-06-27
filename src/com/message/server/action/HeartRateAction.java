@@ -59,7 +59,8 @@ public class HeartRateAction extends ActionSupportUtil implements ModelDriven<He
         heartRate.setMotion_state(new String(heartRate.getMotion_state().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.setRemark(new String(heartRate.getRemark().getBytes("ISO-8859-1"), "UTF-8"));
         heartRate.setPhoneModel(new String(heartRate.getPhoneModel().getBytes("ISO-8859-1"), "UTF-8"));
-
+       // heartRate.setFs(new String(heartRate.getFs().getBytes("ISO-8859-1"), "UTF-8"));
+       // heartRate.setCameraType(new String(heartRate.getCameraType().getBytes("ISO-8859-1"), "UTF-8"));
         //LOG.info("request",heartRate.getUserName());
         //LOG.info("request",heartRate.getEating());
         heartRateDao.addHeartrate(heartRate);
