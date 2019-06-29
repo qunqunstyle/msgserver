@@ -11,5 +11,4 @@
 	<constant name="struts.i18n.reload" value="false" />
 	<!-- 指定每次配置文件更改后，自动重新加载 -->
 	<constant name="struts.configuration.xml.reload" value="false" />
-
 </struts>
